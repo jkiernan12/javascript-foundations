@@ -25,7 +25,7 @@ describe('Golf Course', function () {
 
   // PASS GOLFER TESTS BELOW BEFORE FINISHING REMAINING GOLF COURSE TESTS
 
-  it('should accept golfers if there is room available', function () {
+  xit('should accept golfers if there is room available', function () {
     var golfCourse = new GolfCourse('Bear Dance', 'hard', 8, ['bear shaped green, views']);
     var golfer1 = new Golfer({ name: 'Pat', handicap: 11 });
     var golfer2 = new Golfer({ name: 'Ted', handicap: 13 });
@@ -47,7 +47,7 @@ describe('Golf Course', function () {
     assert.deepEqual(golfCourse.currentlyPlaying, ['Bridget', 'Joanna', 'Kevin', 'Ted', 'Pat']);
   });
 
-  it('should not accept golfers if there is no room available', function () {
+  xit('should not accept golfers if there is no room available', function () {
     var golfCourse = new GolfCourse('Bear Dance', 'hard', 4, ['bear shaped green, views']);
     var golfer1 = new Golfer({ name: 'Pat', handicap: 11 });
     var golfer2 = new Golfer({ name: 'Ted', handicap: 13 });
@@ -149,22 +149,30 @@ describe('Golfer', function () {
     var shot1 = golfer1.whatYaShoot(4);
     assert.equal(golfer1.frustration, 20);
     assert.equal(shot1, 'Doh!');
+    // + 20
 
     var shot2 = golfer1.whatYaShoot(0);
     assert.equal(golfer1.frustration, 10);
     assert.equal(shot2, 'Booyah!');
 
+    // - 10
+
     var shot3 = golfer1.whatYaShoot(2);
     assert.equal(golfer1.frustration, 30);
     assert.equal(shot3, 'Doh!');
+
+    // + 20
 
     var shot4 = golfer1.whatYaShoot(-2);
     assert.equal(golfer1.frustration, 0);
     assert.equal(shot4, 'I AM THE GREATEST GOLFER ALIVE!');
 
+    // -30
+
     var shot5 = golfer1.whatYaShoot(3);
     assert.equal(golfer1.frustration, 20);
     assert.equal(shot5, 'Doh!');
+    // +20
 
     var shot6 = golfer1.whatYaShoot(-1);
     assert.equal(golfer1.frustration, 0);
